@@ -1,24 +1,20 @@
 # Event registration
 
-An anonymized, frontend-only school event registration demo written in plain HTML, CSS, and JavaScript.
+An anonymized, frontend-only school event registration demo built with Vite, React, Tailwind CSS, and Biome.
 
-## What the demo does
+## Commands
 
-- displays event programs from one JavaScript data source;
-- filters programs by schedule block;
-- allows one selection for each of two blocks;
-- stores only anonymous program IDs in the current browser;
-- sends no network requests and uses no backend service;
-- collects no names, email addresses, class details, or other personal data.
-
-## Run locally
-
-No build step or dependencies are required. Open `index.html` directly, or serve the directory with any static file server.
+```bash
+npm run dev
+npm run build
+npm run check
+```
 
 ## Structure
 
-- `index.html` contains the semantic page shell.
-- `index.css` contains all styles and responsive rules.
-- `index.js` contains program data and UI state.
+- `src/components` contains the reusable interface sections.
+- `src/data/programs.js` is the single source for program content.
+- `src/pages/Home.jsx` owns filtering and anonymous registration state.
+- `src/index.css` contains the Tailwind import, theme tokens, and global styles.
 
-This separation keeps the current version simple and makes a later move to Vite, React, and Biome straightforward: program cards, filters, and the registration summary already map naturally to components.
+The interface collects no personal information and sends no network requests. It stores only anonymous program IDs in the current browser.

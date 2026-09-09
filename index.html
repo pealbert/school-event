@@ -2,84 +2,17 @@
 <html lang="cs">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Anonymní ukázka registrace na školní vzdělávací program.">
-		<meta name="theme-color" content="#ffffff">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta
+			content="Anonymní ukázka registrace na školní vzdělávací program."
+			name="description"
+		>
+		<meta content="#f7f5f0" name="theme-color">
+		<link href="/favicon.ico" rel="icon" sizes="any">
 		<title>Studentský den — registrace</title>
-		<link rel="icon" href="./img/favicon.ico" sizes="any">
-		<link rel="stylesheet" href="./index.css">
-		<script src="./index.js" defer></script>
 	</head>
 	<body>
-		<a class="skip-link" href="#main">Přejít na obsah</a>
-
-		<header class="site-header">
-			<div class="site-header__inner">
-				<a class="brand" href="#top" aria-label="Studentský den — úvod">STUDENTSKÝ DEN</a>
-				<nav aria-label="Hlavní navigace">
-					<a href="#programy">Programy</a>
-					<a class="button button--small" href="#registrace">Registrace</a>
-				</nav>
-			</div>
-		</header>
-
-		<main id="main">
-			<section class="hero" id="top" aria-labelledby="hero-title">
-				<p class="eyebrow">Vzdělávací akce pro studenty</p>
-				<h1 id="hero-title">Vyber si dva programy.<br><span>Bez účtu a bez osobních údajů.</span></h1>
-				<p class="hero__lead">Toto je čistě frontendová ukázka registračního webu. Výběr zůstává pouze v tomto prohlížeči a nikam se neodesílá.</p>
-				<a class="button" href="#programy">Prohlédnout program</a>
-			</section>
-
-			<section class="schedule" aria-labelledby="schedule-title">
-				<div>
-					<p class="eyebrow">Jak to funguje</p>
-					<h2 id="schedule-title">Dva bloky, jedna volba pro každý</h2>
-				</div>
-				<ol>
-					<li><strong>1</strong><span>Vyber program pro první blok</span></li>
-					<li><strong>2</strong><span>Vyber program pro druhý blok</span></li>
-					<li><strong>3</strong><span>Potvrď anonymní výběr</span></li>
-				</ol>
-			</section>
-
-			<section class="programs" id="programy" aria-labelledby="programs-title">
-				<div class="section-heading">
-					<div>
-						<p class="eyebrow">Nabídka</p>
-						<h2 id="programs-title">Programy</h2>
-					</div>
-					<div class="filters" role="group" aria-label="Filtrovat programy">
-						<button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Vše</button>
-						<button class="filter" type="button" data-filter="1" aria-pressed="false">Blok 1</button>
-						<button class="filter" type="button" data-filter="2" aria-pressed="false">Blok 2</button>
-					</div>
-				</div>
-				<div class="program-grid" id="program-list"></div>
-				<noscript>Pro výběr programu je potřeba povolit JavaScript.</noscript>
-			</section>
-
-			<section class="registration" id="registrace" aria-labelledby="registration-title">
-				<div>
-					<p class="eyebrow">Registrace</p>
-					<h2 id="registration-title">Tvůj výběr</h2>
-					<p>Nezadáváš jméno, e-mail ani jiné osobní údaje.</p>
-				</div>
-				<form class="registration__panel" id="registration-form">
-					<div id="selection-summary" class="selection-summary" aria-live="polite"></div>
-					<p class="privacy-note">Data se ukládají jen lokálně jako anonymní ID programů.</p>
-					<div class="registration__actions">
-						<button class="button" id="submit-selection" type="submit">Potvrdit výběr</button>
-						<button class="text-button" id="reset-selection" type="button">Vymazat výběr</button>
-					</div>
-					<p class="form-status" id="form-status" role="status"></p>
-				</form>
-			</section>
-		</main>
-
-		<footer>
-			<span>Studentský den</span>
-			<span>Frontendová ukázka bez externích služeb</span>
-		</footer>
+		<div id="root"></div>
+		<script src="/src/main.jsx" type="module"></script>
 	</body>
 </html>

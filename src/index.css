@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Montserrat:wght@700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--color-ink: #171717;
+	--color-muted: #676767;
+	--color-paper: #f7f5f0;
+	--color-brand-blue: #1658c9;
+	--color-brand-blue-dark: #0e3f96;
+	--color-brand-red: #d51c32;
+	--color-line: #d8d4cc;
+	--font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-heading: Montserrat, "DM Sans", sans-serif;
+	--shadow-card: 0 18px 45px rgb(20 31 47 / 9%);
+}
+
+@layer base {
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	html {
+		@apply scroll-smooth;
+	}
+
+	body {
+		font-feature-settings:
+			"rlig" 1,
+			"calt" 1;
+		line-height: 1.55;
+		@apply m-0 w-full overflow-x-clip bg-paper font-sans text-ink antialiased;
+	}
+
+	button {
+		@apply cursor-pointer disabled:cursor-not-allowed;
+	}
+
+	::selection {
+		@apply bg-brand-blue text-white;
+	}
+
+	:focus:not(:focus-visible) {
+		@apply outline-none;
+	}
+
+	:focus-visible {
+		outline: 3px solid #f4b400;
+		outline-offset: 3px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto;
+		transition-duration: 0.01ms;
+	}
+}
