@@ -1,14 +1,14 @@
 const steps = [
 	"Vyber program pro první blok",
 	"Vyber program pro druhý blok",
-	"Potvrď anonymní výběr",
+	"Potvrď výběr",
 ];
 
 export const Schedule = () => {
 	return (
 		<section
 			aria-labelledby="schedule-title"
-			className="grid grid-cols-1 gap-8 border-line border-y py-[52px] min-[900px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] min-[900px]:gap-[clamp(48px,7vw,96px)] min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
+			className="grid grid-cols-1 gap-8 border-line border-y py-13 min-[900px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] min-[900px]:gap-[clamp(48px,7vw,96px)] min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
 		>
 			<div>
 				<p className="mb-3 font-extrabold text-[0.72rem] text-brand-blue uppercase tracking-[0.12em]">

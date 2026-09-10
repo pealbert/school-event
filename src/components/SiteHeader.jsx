@@ -9,7 +9,7 @@ export const SiteHeader = () => {
 			<PageContainer className="flex min-h-[inherit] items-center justify-between gap-3">
 				<a
 					aria-label="Studentský den — úvod"
-					className="min-w-0 font-bold font-heading text-[0.72rem] leading-[1.15] tracking-[0.08em] no-underline min-[480px]:text-[0.82rem] min-[700px]:text-sm min-[480px]:tracking-[0.1em] min-[700px]:tracking-[0.12em]"
+					className="min-w-0 font-bold font-heading text-[0.72rem] leading-[1.15] tracking-[0.08em] no-underline min-[480px]:text-[0.82rem] min-[700px]:text-sm min-[480px]:tracking-widest min-[700px]:tracking-[0.12em]"
 					href="#top"
 				>
 					STUDENTSKÝ DEN

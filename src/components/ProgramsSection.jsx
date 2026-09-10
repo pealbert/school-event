@@ -21,10 +21,10 @@ export const ProgramsSection = ({
 	return (
 		<section
 			aria-labelledby="programs-title"
-			className="scroll-mt-16 py-[52px] min-[480px]:scroll-mt-18 min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
+			className="scroll-mt-16 py-13 min-[480px]:scroll-mt-18 min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
 			id="programy"
 		>
-			<div className="mb-7 flex flex-col items-start gap-[18px] min-[700px]:flex-row min-[700px]:items-end min-[700px]:justify-between min-[700px]:gap-6">
+			<div className="mb-7 flex flex-col items-start gap-4.5 min-[700px]:flex-row min-[700px]:items-end min-[700px]:justify-between min-[700px]:gap-6">
 				<div>
 					<p className="mb-3 font-extrabold text-[0.72rem] text-brand-blue uppercase tracking-[0.12em]">
 						Nabídka
@@ -44,7 +44,7 @@ export const ProgramsSection = ({
 						return (
 							<button
 								aria-pressed={isActive}
-								className={`min-h-11 rounded-full border px-3.5 font-bold transition ${
+								className={`min-h-11 rounded-full border px-5 font-bold transition ${
 									isActive
 										? "border-ink bg-ink text-white"
 										: "border-line bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white"
@@ -59,7 +59,7 @@ export const ProgramsSection = ({
 					})}
 				</fieldset>
 			</div>
-			<div className="grid grid-cols-1 gap-4 min-[1240px]:grid-cols-3 min-[700px]:grid-cols-2 min-[700px]:gap-[18px]">
+			<div className="grid grid-cols-1 gap-4 min-[1240px]:grid-cols-3 min-[700px]:grid-cols-2 min-[700px]:gap-4.5">
 				{visiblePrograms.map((program) => (
 					<ProgramCard
 						isSelected={selection.includes(program.id)}

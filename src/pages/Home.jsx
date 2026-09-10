@@ -110,7 +110,7 @@ export const Home = () => {
 	return (
 		<>
 			<a
-				className="fixed top-3 left-3 z-20 -translate-y-[160%] bg-ink px-3.5 py-2.5 text-white focus:translate-y-0"
+				className="fixed top-3 left-3 z-20 translate-y-[-160%] bg-ink px-3.5 py-2.5 text-white focus:translate-y-0"
 				href="#main"
 			>
 				Přejít na obsah

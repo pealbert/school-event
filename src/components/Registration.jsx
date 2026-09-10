@@ -27,7 +27,7 @@ export const Registration = ({
 	return (
 		<section
 			aria-labelledby="registration-title"
-			className="grid scroll-mt-16 grid-cols-1 items-start gap-8 border-line border-t py-[52px] min-[480px]:scroll-mt-18 min-[900px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] min-[900px]:gap-[clamp(48px,7vw,96px)] min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
+			className="grid scroll-mt-16 grid-cols-1 items-start gap-8 border-line border-t py-13 min-[480px]:scroll-mt-18 min-[900px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] min-[900px]:gap-[clamp(48px,7vw,96px)] min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
 			id="registrace"
 		>
 			<div>
@@ -55,7 +55,7 @@ export const Registration = ({
 				<p className="my-5 text-[#bdbdbd] text-sm">
 					Data se ukládají jen lokálně jako anonymní ID programů.
 				</p>
-				<div className="flex flex-col items-stretch gap-2.5 min-[480px]:flex-row min-[480px]:items-center min-[480px]:gap-[18px]">
+				<div className="flex flex-col items-stretch gap-2.5 min-[480px]:flex-row min-[480px]:items-center min-[480px]:gap-4.5">
 					<button
 						className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand-blue px-5 font-bold text-white transition hover:bg-brand-blue-dark disabled:bg-[#aaa7a0] motion-safe:hover:-translate-y-0.5 min-[480px]:w-auto"
 						disabled={!isComplete}
