@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 export const ProgramCard = ({ isSelected, onSelect, program }) => {
 	return (
 		<article className="flex min-w-0 flex-col rounded-[14px] border border-line bg-white p-5 shadow-transparent transition hover:border-[#b3aea4] hover:shadow-card motion-safe:hover:-translate-y-0.5 min-[1240px]:min-h-85 min-[700px]:min-h-80 min-[480px]:rounded-[18px] min-[1240px]:p-9 min-[480px]:p-6 min-[900px]:p-8">
@@ -15,11 +17,12 @@ export const ProgramCard = ({ isSelected, onSelect, program }) => {
 				<span className="font-bold text-sm">Místnost {program.room}</span>
 				<button
 					aria-pressed={isSelected}
-					className={`min-h-11 w-full rounded-[10px] border px-4 py-2.5 font-bold transition min-[480px]:w-auto min-[480px]:min-w-26 ${
+					className={cn(
+						"min-h-11 w-full rounded-[10px] border px-4 py-2.5 font-bold transition min-[480px]:w-auto min-[480px]:min-w-26",
 						isSelected
 							? "border-brand-blue bg-brand-blue text-white"
-							: "border-line bg-transparent text-ink hover:border-brand-blue hover:bg-brand-blue hover:text-white"
-					}`}
+							: "border-line bg-transparent text-ink hover:border-brand-blue hover:bg-brand-blue hover:text-white",
+					)}
 					onClick={() => onSelect(program)}
 					type="button"
 				>

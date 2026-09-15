@@ -1,4 +1,5 @@
 import { ProgramCard } from "@/components/ProgramCard";
+import { cn } from "@/lib/utils";
 
 const filters = [
 	{ label: "Vše", value: "all" },
@@ -44,11 +45,12 @@ export const ProgramsSection = ({
 						return (
 							<button
 								aria-pressed={isActive}
-								className={`min-h-11 rounded-full border px-5 font-bold transition ${
+								className={cn(
+									"min-h-11 rounded-full border px-5 font-bold transition",
 									isActive
 										? "border-ink bg-ink text-white"
-										: "border-line bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white"
-								}`}
+										: "border-line bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white",
+								)}
 								key={filter.value}
 								onClick={() => onFilter(filter.value)}
 								type="button"

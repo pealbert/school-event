@@ -1,11 +1,14 @@
+import { cn } from "@/lib/utils";
+
 const SummaryItem = ({ block, program }) => {
 	return (
 		<div
-			className={`grid min-w-0 gap-1 rounded-xl border p-3.5 ${
+			className={cn(
+				"grid min-w-0 gap-1 rounded-xl border p-3.5",
 				program
 					? "border-[#4d73b7] text-white"
-					: "border-[#5d5d5d] border-dashed text-[#aaa]"
-			}`}
+					: "border-[#5d5d5d] border-dashed text-[#aaa]",
+			)}
 		>
 			<span className="font-bold text-[0.72rem] uppercase tracking-[0.08em]">
 				Blok {block}
