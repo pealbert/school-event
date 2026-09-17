@@ -27,7 +27,7 @@ export const NotFound = () => {
 					<h1 className="mb-5 font-bold font-heading text-[clamp(2.5rem,10vw,6.5rem)] leading-[1.02] tracking-[-0.045em]">
 						Tahle stránka
 						<br />
-						<span className="bg-linear-to-r from-brand-blue to-brand-red bg-clip-text text-transparent">
+						<span className="bg-linear-to-r from-brand-blue to-brand-red box-decoration-clone bg-clip-text pr-[0.05em] text-transparent">
 							není v programu.
 						</span>
 					</h1>
