@@ -1,3 +1,4 @@
+import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/utils";
 
 const SummaryItem = ({ block, program }) => {
@@ -33,20 +34,12 @@ export const Registration = ({
 			className="grid scroll-mt-16 grid-cols-1 items-start gap-8 border-line border-t py-13 min-[480px]:scroll-mt-18 min-[900px]:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] min-[900px]:gap-[clamp(48px,7vw,96px)] min-[1240px]:py-28 min-[480px]:py-16 min-[900px]:py-22"
 			id="registrace"
 		>
-			<div>
-				<p className="mb-3 font-extrabold text-[0.72rem] text-brand-blue uppercase tracking-[0.12em]">
-					Registrace
-				</p>
-				<h2
-					className="mb-4 font-bold font-heading text-[clamp(1.75rem,8vw,2.4rem)] leading-[1.08] tracking-[-0.04em] min-[1240px]:text-[3.6rem] min-[480px]:text-[clamp(2rem,6vw,3rem)]"
-					id="registration-title"
-				>
-					Tvůj výběr
-				</h2>
-				<p className="text-muted">
-					Nezadáváš jméno, e-mail ani jiné osobní údaje.
-				</p>
-			</div>
+			<SectionHeading
+				description="Nezadáváš jméno, e-mail ani jiné osobní údaje."
+				eyebrow="Registrace"
+				id="registration-title"
+				title="Tvůj výběr"
+			/>
 			<form
 				className="min-w-0 rounded-[14px] bg-ink p-5 text-white shadow-card min-[480px]:rounded-[18px] min-[480px]:p-6 min-[900px]:p-8"
 				onSubmit={onSubmit}
