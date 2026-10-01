@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "vite build",
+		"build": "tsc --noEmit && vite build",
 		"check": "biome check",
 		"check:write": "biome check --write --unsafe",
 		"dev": "vite",
@@ -12,7 +12,8 @@
 		"format:write": "biome format --write",
 		"lint": "biome lint",
 		"lint:write": "biome lint --write",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
@@ -26,9 +27,11 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.11",
+		"@types/node": "^26.6.3",
 		"@types/react": "^19.2.18",
 		"@types/react-dom": "^19.2.4",
 		"@vitejs/plugin-react": "^6.1.0",
+		"typescript": "^7.0.2",
 		"vite": "^8.2.2"
 	}
 }

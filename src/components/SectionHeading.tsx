@@ -1,4 +1,16 @@
-export const SectionHeading = ({ description, eyebrow, id, title }) => {
+type SectionHeadingProps = {
+	description?: string;
+	eyebrow: string;
+	id: string;
+	title: string;
+};
+
+export const SectionHeading = ({
+	description,
+	eyebrow,
+	id,
+	title,
+}: SectionHeadingProps) => {
 	return (
 		<div>
 			<p className="mb-3 font-extrabold text-[0.72rem] text-brand-blue uppercase tracking-[0.12em]">

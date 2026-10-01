@@ -1,6 +1,17 @@
 import { cn } from "@/lib/utils";
+import type { Program } from "@/types";
 
-export const ProgramCard = ({ isSelected, onSelect, program }) => {
+type ProgramCardProps = {
+	isSelected: boolean;
+	onSelect: (program: Program) => void;
+	program: Program;
+};
+
+export const ProgramCard = ({
+	isSelected,
+	onSelect,
+	program,
+}: ProgramCardProps) => {
 	return (
 		<article className="flex min-w-0 flex-col rounded-[14px] border border-line bg-white p-5 shadow-transparent transition hover:border-[#b3aea4] hover:shadow-card motion-safe:hover:-translate-y-0.5 min-[1240px]:min-h-85 min-[700px]:min-h-80 min-[480px]:rounded-[18px] min-[1240px]:p-9 min-[480px]:p-6 min-[900px]:p-8">
 			<div className="mb-5 flex min-w-0 flex-wrap items-center justify-between gap-3 font-bold text-[0.72rem] text-muted uppercase tracking-[0.07em]">

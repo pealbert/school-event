@@ -1,7 +1,14 @@
+import type { SubmitEventHandler } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/utils";
+import type { Block, Program, SelectedPrograms } from "@/types";
 
-const SummaryItem = ({ block, program }) => {
+type SummaryItemProps = {
+	block: Block;
+	program: Program | undefined;
+};
+
+const SummaryItem = ({ block, program }: SummaryItemProps) => {
 	return (
 		<div
 			className={cn(
@@ -21,13 +28,21 @@ const SummaryItem = ({ block, program }) => {
 	);
 };
 
+type RegistrationProps = {
+	isComplete: boolean;
+	onReset: () => void;
+	onSubmit: SubmitEventHandler<HTMLFormElement>;
+	selectedPrograms: SelectedPrograms;
+	status: string;
+};
+
 export const Registration = ({
 	isComplete,
 	onReset,
 	onSubmit,
 	selectedPrograms,
 	status,
-}) => {
+}: RegistrationProps) => {
 	return (
 		<section
 			aria-labelledby="registration-title"

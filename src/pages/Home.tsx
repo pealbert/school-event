@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type SubmitEventHandler, useState } from "react";
 import { Hero } from "@/components/Hero";
 import { PageContainer } from "@/components/PageContainer";
 import { ProgramsSection } from "@/components/ProgramsSection";
@@ -7,33 +7,41 @@ import { Schedule } from "@/components/Schedule";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { programs } from "@/data/programs";
+import type { Program, ProgramFilter, SelectedPrograms } from "@/types";
 
 const STORAGE_KEY = "event-registration-selection-v1";
 
-const loadSelection = () => {
+const isProgramId = (value: unknown): value is string =>
+	typeof value === "string" && programs.some(({ id }) => id === value);
+
+const loadSelection = (): string[] => {
 	try {
-		const savedValue = JSON.parse(localStorage.getItem(STORAGE_KEY));
+		const savedValue: unknown = JSON.parse(
+			localStorage.getItem(STORAGE_KEY) ?? "null",
+		);
 		if (!Array.isArray(savedValue)) return [];
 
-		return savedValue.reduce((validSelection, id) => {
-			const program = programs.find((item) => item.id === id);
-			const overlapsExistingBlock = program?.blocks.some((block) =>
-				validSelection.some((selectedId) =>
-					programs
-						.find((item) => item.id === selectedId)
-						?.blocks.includes(block),
-				),
-			);
+		return savedValue
+			.filter(isProgramId)
+			.reduce<string[]>((validSelection, id) => {
+				const program = programs.find((item) => item.id === id);
+				const overlapsExistingBlock = program?.blocks.some((block) =>
+					validSelection.some((selectedId) =>
+						programs
+							.find((item) => item.id === selectedId)
+							?.blocks.includes(block),
+					),
+				);
 
-			if (program && !overlapsExistingBlock) validSelection.push(id);
-			return validSelection;
-		}, []);
+				if (program && !overlapsExistingBlock) validSelection.push(id);
+				return validSelection;
+			}, []);
 	} catch {
 		return [];
 	}
 };
 
-const saveSelection = (selection) => {
+const saveSelection = (selection: readonly string[]): boolean => {
 	try {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(selection));
 		return true;
@@ -51,22 +59,21 @@ const clearSelection = () => {
 };
 
 export const Home = () => {
-	const [activeFilter, setActiveFilter] = useState("all");
-	const [selection, setSelection] = useState(loadSelection);
+	const [activeFilter, setActiveFilter] = useState<ProgramFilter>("all");
+	const [selection, setSelection] = useState<string[]>(loadSelection);
 	const [status, setStatus] = useState("");
 
-	const selectedPrograms = Object.fromEntries(
-		[1, 2].map((block) => [
-			block,
-			programs.find(
-				(program) =>
-					selection.includes(program.id) && program.blocks.includes(block),
-			),
-		]),
-	);
+	const selectedPrograms: SelectedPrograms = {
+		1: programs.find(
+			(program) => selection.includes(program.id) && program.blocks.includes(1),
+		),
+		2: programs.find(
+			(program) => selection.includes(program.id) && program.blocks.includes(2),
+		),
+	};
 	const isComplete = Boolean(selectedPrograms[1] && selectedPrograms[2]);
 
-	const handleSelect = (program) => {
+	const handleSelect = (program: Program) => {
 		setSelection((currentSelection) => {
 			const nextSelection = currentSelection.filter((selectedId) => {
 				const selectedProgram = programs.find(({ id }) => id === selectedId);
@@ -87,7 +94,7 @@ export const Home = () => {
 		setStatus("");
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit: SubmitEventHandler<HTMLFormElement> = (event) => {
 		event.preventDefault();
 		if (!isComplete) {
 			setStatus("Nejdříve vyber jeden program pro každý blok.");

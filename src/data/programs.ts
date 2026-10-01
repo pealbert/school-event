@@ -1,4 +1,6 @@
-export const programs = [
+import type { Program } from "@/types";
+
+export const programs: readonly Program[] = [
 	{
 		id: "media-literacy",
 		title: "Média, fakta a svobodná diskuse",

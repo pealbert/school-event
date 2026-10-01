@@ -1,12 +1,21 @@
 import { ProgramCard } from "@/components/ProgramCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/utils";
+import type { Program, ProgramFilter } from "@/types";
 
-const filters = [
+const filters: readonly { label: string; value: ProgramFilter }[] = [
 	{ label: "Vše", value: "all" },
 	{ label: "Blok 1", value: "1" },
 	{ label: "Blok 2", value: "2" },
 ];
+
+type ProgramsSectionProps = {
+	activeFilter: ProgramFilter;
+	onFilter: (filter: ProgramFilter) => void;
+	onSelect: (program: Program) => void;
+	programs: readonly Program[];
+	selection: readonly string[];
+};
 
 export const ProgramsSection = ({
 	activeFilter,
@@ -14,10 +23,11 @@ export const ProgramsSection = ({
 	onSelect,
 	programs,
 	selection,
-}) => {
+}: ProgramsSectionProps) => {
 	const visiblePrograms = programs.filter(
 		(program) =>
-			activeFilter === "all" || program.blocks.includes(Number(activeFilter)),
+			activeFilter === "all" ||
+			program.blocks.some((block) => String(block) === activeFilter),
 	);
 
 	return (
